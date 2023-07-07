@@ -3,10 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FluentValidation;
 
 namespace HomeBudgetApp.Application.UseCases.Expences.Commands.UpdateExpences
 {
-    internal class UpdateExpenceCommandValidation
+    public class UpdateExpenceCommandValidation:AbstractValidator<UpdateExpenceCommand>
     {
+        public UpdateExpenceCommandValidation()
+        {
+            RuleFor(e => e.Id)
+              .NotEmpty()
+              .WithMessage("Expence Id is required");
+
+            RuleFor(e => e.Comment)
+              .NotEmpty()
+              .MinimumLength(3)
+              .MaximumLength(100)
+              .WithMessage("Comment is required");
+
+            RuleFor(e => e.ExpenceCategory)
+               .NotEmpty()
+               .WithMessage("Expence Category is required");
+
+            RuleFor(e => e.Amount)
+                .NotEmpty()
+                .WithMessage("Amount is required.");
+        }
     }
 }

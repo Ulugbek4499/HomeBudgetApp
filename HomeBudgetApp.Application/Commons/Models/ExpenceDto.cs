@@ -10,7 +10,6 @@ namespace HomeBudgetApp.Application.Commons.Models
     public class ExpenceDto
     {
         public Guid Id { get; set; }
-        public DateTime CreatedDate { get; set; }
         public decimal Amount { get; set; }
         public ExpenceCategory ExpenceCategory { get; set; }
         public string Comment { get; set; }
