@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using HomeBudgetApp.Application.Commons.Interfaces;
+using HomeBudgetApp.Application.Commons.Models;
+using HomeBudgetApp.Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace HomeBudgetApp.Application.UseCases.Expences.Queries.GetExpences
 {
-    public class GetExpencesQueryHandler : IRequestHandler<GetToDoListsQuery, ToDoListDto[]>
+    public class GetExpencesQueryHandler : IRequestHandler<GetExpencesQuery, ExpenceDto[]>
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
@@ -22,11 +20,11 @@ namespace HomeBudgetApp.Application.UseCases.Expences.Queries.GetExpences
             _mapper = mapper;
         }
 
-        public async Task<ToDoListDto[]> Handle(GetToDoListsQuery request, CancellationToken cancellationToken)
+        public async Task<ExpenceDto[]> Handle(GetExpencesQuery request, CancellationToken cancellationToken)
         {
-            ToDoList[] ToDoLists = await _context.ToDoLists.ToArrayAsync();
+            Expence[] Expences = await _context.Expences.ToArrayAsync();
 
-            return _mapper.Map<ToDoListDto[]>(ToDoLists);
+            return _mapper.Map<ExpenceDto[]>(Expences);
         }
     }
 }
