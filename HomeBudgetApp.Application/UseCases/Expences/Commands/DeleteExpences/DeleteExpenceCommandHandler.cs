@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using HomeBudgetApp.Application.Commons.Exceptions;
 using HomeBudgetApp.Application.Commons.Interfaces;
 using HomeBudgetApp.Application.Commons.Models;
@@ -36,7 +31,7 @@ namespace HomeBudgetApp.Application.UseCases.Expences.Commands.DeleteExpences
 
             await _context.SaveChangesAsync(cancellationToken);
 
-          //  await _mediator.Publish(new ExpenceDeletedNotification(maybeExpence.Title));
+            //  await _mediator.Publish(new ExpenceDeletedNotification(maybeExpence.Title));
 
             return _mapper.Map<ExpenceDto>(maybeExpence);
         }

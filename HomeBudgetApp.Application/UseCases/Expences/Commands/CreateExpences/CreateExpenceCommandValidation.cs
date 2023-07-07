@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace HomeBudgetApp.Application.UseCases.Expences.Commands.CreateExpences
 {
@@ -17,13 +12,11 @@ namespace HomeBudgetApp.Application.UseCases.Expences.Commands.CreateExpences
                .MaximumLength(100)
                .WithMessage("Comment is required");
 
-
-
             RuleFor(e => e.ExpenceCategory)
                .NotEmpty()
                .WithMessage("Expence Category is required");
 
-            RuleFor(e=>e.Amount)
+            RuleFor(e => e.Amount)
                 .NotEmpty()
                 .WithMessage("Amount is required.");
         }

@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using Serilog;
 
 namespace HomeBudgetApp.Application.UseCases.Incomes.Notifications
 {
-    internal class IncomeDeletedNotification
+    public record IncomeDeletedNotification(string comment, decimal amount) : INotification;
+
+    public class IncomeDeletedNotificationHandler : INotificationHandler<IncomeDeletedNotification>
     {
+        public Task Handle(IncomeDeletedNotification notification, CancellationToken cancellationToken)
+        {
+            Log.Information($"HomeBudget: Income DELETED with comment: ' {notification.comment} ' and amount is: ' {notification.amount} '.");
+
+            return Task.CompletedTask;
+        }
     }
 }

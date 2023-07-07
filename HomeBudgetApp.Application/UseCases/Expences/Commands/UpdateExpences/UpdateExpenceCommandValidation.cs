@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace HomeBudgetApp.Application.UseCases.Expences.Commands.UpdateExpences
 {
-    public class UpdateExpenceCommandValidation:AbstractValidator<UpdateExpenceCommand>
+    public class UpdateExpenceCommandValidation : AbstractValidator<UpdateExpenceCommand>
     {
         public UpdateExpenceCommandValidation()
         {

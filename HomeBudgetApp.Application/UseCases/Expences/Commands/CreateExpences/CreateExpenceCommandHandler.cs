@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using HomeBudgetApp.Application.Commons.Interfaces;
 using HomeBudgetApp.Application.Commons.Models;
 using HomeBudgetApp.Application.UseCases.Expences.Commands.CreateExpences;
@@ -29,9 +24,9 @@ namespace HomeBudgetApp.Application.UseCases.Expences.Commands.CreateExpence
         {
             var expence = new Expence()
             {
-                Amount=request.Amount,
-                Comment=request.Comment,
-                ExpenceCategory=request.ExpenceCategory
+                Amount = request.Amount,
+                Comment = request.Comment,
+                ExpenceCategory = request.ExpenceCategory
             };
 
             expence = _context.Expences.Add(expence).Entity;

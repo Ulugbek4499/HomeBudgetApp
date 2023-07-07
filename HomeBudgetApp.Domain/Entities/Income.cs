@@ -3,7 +3,7 @@ using HomeBudgetApp.Domain.States;
 
 namespace HomeBudgetApp.Domain.Entities
 {
-    public class Income: BaseAuditableEntity
+    public class Income : BaseAuditableEntity
     {
         public decimal Amount { get; set; }
         public IncomeCategory IncomeCategory { get; set; }

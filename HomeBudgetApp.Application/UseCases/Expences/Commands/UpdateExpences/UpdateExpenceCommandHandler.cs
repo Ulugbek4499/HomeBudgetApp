@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using HomeBudgetApp.Application.Commons.Exceptions;
 using HomeBudgetApp.Application.Commons.Interfaces;
 using HomeBudgetApp.Application.Commons.Models;
@@ -33,7 +28,7 @@ namespace HomeBudgetApp.Application.UseCases.Expences.Commands.UpdateExpences
             ValidateExpenceIsNotNull(request, maybeExpence);
 
             maybeExpence.Amount = request.Amount;
-            maybeExpence.ExpenceCategory =request.ExpenceCategory;
+            maybeExpence.ExpenceCategory = request.ExpenceCategory;
             maybeExpence.Comment = request.Comment;
 
             await _context.SaveChangesAsync(cancellationToken);
