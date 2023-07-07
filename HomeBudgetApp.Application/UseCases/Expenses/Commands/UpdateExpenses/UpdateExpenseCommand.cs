@@ -10,5 +10,6 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Commands.UpdateExpenses
         public decimal Amount { get; set; }
         public ExpenseCategory ExpenseCategory { get; set; }
         public string Comment { get; set; }
+        public DateTime Time { get; set; }
     }
 }

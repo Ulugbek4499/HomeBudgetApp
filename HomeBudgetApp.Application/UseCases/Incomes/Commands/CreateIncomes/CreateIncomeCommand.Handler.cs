@@ -25,7 +25,8 @@ namespace HomeBudgetApp.Application.UseCases.Incomes.Commands.CreateIncomes
             {
                 Amount = request.Amount,
                 Comment = request.Comment,
-                IncomeCategory = request.IncomeCategory
+                IncomeCategory = request.IncomeCategory,
+                Time = request.Time,
             };
 
             Income = _context.Incomes.Add(Income).Entity;

@@ -30,6 +30,7 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Commands.UpdateExpenses
             maybeExpense.Amount = request.Amount;
             maybeExpense.ExpenseCategory = request.ExpenseCategory;
             maybeExpense.Comment = request.Comment;
+            maybeExpense.Time = request.Time;
 
             await _context.SaveChangesAsync(cancellationToken);
 

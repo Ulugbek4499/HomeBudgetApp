@@ -19,6 +19,10 @@ namespace HomeBudgetApp.Application.UseCases.Incomes.Commands.CreateIncomes
             RuleFor(e => e.Amount)
                 .NotEmpty()
                 .WithMessage("Amount is required.");
+
+            RuleFor(e => e.Time)
+             .NotEqual((DateTime)default)
+             .WithMessage("Time is required.");
         }
     }
 }

@@ -1,1 +1,50 @@
-﻿
+﻿@{
+    Layout = "_Layout";
+}
+
+@model HomeBudgetApp.Application.Commons.Models.IncomeDto[]
+
+<h3 class="text-center">All Incomes </h3>
+<p>
+    <a href="@Url.Action("CreateIncome")" class="btn btn-primary">CreateIncome</a>
+</p>
+<hr />
+
+<div class="custom-cards">
+
+    @{
+        if (Model.Length == 0)
+        {
+            <h2>There is no income yet...</h2>
+        }
+    }
+
+    <div class="table-container" style="overflow-y:hidden; overflow:auto; height:55vh; width:700px">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width: 40%;">IncomeCategory</th>
+                    <th style="width: 40%;">Amount</th>
+                    <th style="width: 40%;">Comment</th>
+                    <th style="width: 10%;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Income in Model)
+                {
+                    <tr>
+                        <td>@Income.IncomeCategory</td>
+                        <td>@Income.Amount</td>
+                        <td>@Income.Comment</td>
+                        <td class="action-links">
+                            <a href="@Url.Action("ViewIncome", new { id = Income.Id })" class="btn btn-secondary">Details</a>
+                            <a href="@Url.Action("UpdateIncome", new { id = Income.Id })" class="btn btn-primary">Edit</a>
+                            <a href="@Url.Action("DeleteIncome", new { id = Income.Id })" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

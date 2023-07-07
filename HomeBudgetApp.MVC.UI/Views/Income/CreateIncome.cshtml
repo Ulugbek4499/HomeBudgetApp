@@ -1,1 +1,46 @@
-﻿
+﻿@using HomeBudgetApp.Application.UseCases.Incomes.Commands.CreateIncomes
+@using HomeBudgetApp.Domain.States;
+
+@{
+    ViewData["Title"] = "CreateIncome";
+    Layout = "_Layout";
+}
+
+@model CreateIncomeCommand
+
+<h3 class="text-center">Add new Income</h3>
+<hr />
+
+<form asp-controller="Income" asp-action="CreateIncome" enctype="multipart/form-data" method="post">
+
+    <div class="form-group">
+        <label for="Amount">Amount:</label>
+        <input type="number" id="Amount" name="Amount" class="form-control" required />
+        <span class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IncomeCategory">IncomeCategory:</label>
+        <select asp-for="IncomeCategory" class="form-control" required>
+            <option value="">Choose Category</option>
+            @foreach (var status in Enum.GetValues(typeof(IncomeCategory)))
+            {
+                <option value="@status">@status</option>
+            }
+        </select>
+        <span asp-validation-for="IncomeCategory" class="text-danger"></span>
+    </div>
+
+    <div class="container mt-3 custom-input">
+        <label asp-for="Comment" class="form-label">Comment</label>
+        <div class="input-group mb-3">
+            <input asp-for="Comment" type="text" class="form-control">
+        </div>
+        <span asp-validation-for="Comment" class="text-danger"></span><br>
+    </div>
+
+    <div class="button-group">
+        <button type="submit" class="btn btn-success">Save</button>
+    </div>
+
+</form>

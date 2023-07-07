@@ -26,7 +26,8 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Commands.CreateExpense
             {
                 Amount = request.Amount,
                 Comment = request.Comment,
-                ExpenseCategory = request.ExpenseCategory
+                ExpenseCategory = request.ExpenseCategory,
+                Time = request.Time
             };
 
             Expense = _context.Expenses.Add(Expense).Entity;
