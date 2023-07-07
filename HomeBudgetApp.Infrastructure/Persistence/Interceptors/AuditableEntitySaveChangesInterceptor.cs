@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HomeBudgetApp.Application.Commons.Interfaces;
+﻿using HomeBudgetApp.Application.Commons.Interfaces;
 using HomeBudgetApp.Domain.Commons;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore;
 
 namespace HomeBudgetApp.Infrastructure.Persistence.Interceptors
 {

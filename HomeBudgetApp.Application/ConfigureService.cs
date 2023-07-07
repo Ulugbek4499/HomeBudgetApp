@@ -1,8 +1,8 @@
-﻿using FluentValidation;
+﻿using System.Reflection;
+using FluentValidation;
 using HomeBudgetApp.Application.Commons.Behaviours;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
 
 namespace HomeBudgetApp.Application
 {

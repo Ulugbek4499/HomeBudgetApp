@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HomeBudgetApp.Application.Commons.Interfaces;
 
 namespace HomeBudgetApp.Infrastructure.Services
 {
-    internal class GuidGeneratorService
+    public class GuidGeneratorService : IGuidGenerator
     {
+        public Guid Guid => Guid.NewGuid();
     }
 }
