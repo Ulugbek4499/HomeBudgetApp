@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeBudgetApp.Application.UseCases.Expences.Commands.CreateExpences
 {
-    internal class CreateExpenceCommand
+    public class CreateExpenceCommand
     {
     }
 }
