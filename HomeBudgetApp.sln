@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBudgetApp.MVC.UI", "HomeBudgetApp.MVC.UI\HomeBudgetApp.MVC.UI.csproj", "{74E61244-F0BE-458F-ADAD-1847FFF62F61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeBudgetApp.MVC.UI", "HomeBudgetApp.MVC.UI\HomeBudgetApp.MVC.UI.csproj", "{74E61244-F0BE-458F-ADAD-1847FFF62F61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBudgetApp.Domain", "HomeBudgetApp.Domain\HomeBudgetApp.Domain.csproj", "{8B9A58E8-E599-4901-9568-FA41C668F53F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeBudgetApp.Domain", "HomeBudgetApp.Domain\HomeBudgetApp.Domain.csproj", "{8B9A58E8-E599-4901-9568-FA41C668F53F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBudgetApp.Application", "HomeBudgetApp.Application\HomeBudgetApp.Application.csproj", "{096ACCA9-14BB-49E8-A60F-4C8549876A1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeBudgetApp.Application", "HomeBudgetApp.Application\HomeBudgetApp.Application.csproj", "{096ACCA9-14BB-49E8-A60F-4C8549876A1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBudgetApp.Infrastructure", "HomeBudgetApp.Infrastructure\HomeBudgetApp.Infrastructure.csproj", "{5F52AABF-98B8-4990-A195-B383E24A066E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeBudgetApp.Infrastructure", "HomeBudgetApp.Infrastructure\HomeBudgetApp.Infrastructure.csproj", "{5F52AABF-98B8-4990-A195-B383E24A066E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

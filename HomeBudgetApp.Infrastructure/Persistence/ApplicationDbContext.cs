@@ -20,7 +20,7 @@ namespace HomeBudgetApp.Infrastructure.Persistence
             _interceptor = interceptor;
         }
 
-        public DbSet<Expence> Expences { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
         public DbSet<Income> Incomes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,6 +1,6 @@
 ﻿namespace HomeBudgetApp.Domain.States
 {
-    public enum ExpenceCategory
+    public enum ExpenseCategory
     {
         Foods,
         Transport,

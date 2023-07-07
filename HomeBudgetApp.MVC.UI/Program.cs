@@ -1,13 +1,22 @@
+using HomeBudgetApp.Application;
+using HomeBudgetApp.Infrastructure;
+using HomeBudgetApp.MVC.UI.Services;
+
 namespace HomeBudgetApp.MVC.UI
 {
     public class Program
     {
         public static void Main(string[] args)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
             var builder = WebApplication.CreateBuilder(args);
+            SerilogService.SerilogSettings(builder.Configuration);
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddInfrastructureService(builder.Configuration);
+            builder.Services.AddApplicationService();
 
             var app = builder.Build();
 

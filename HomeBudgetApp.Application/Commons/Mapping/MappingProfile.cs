@@ -8,7 +8,7 @@ namespace HomeBudgetApp.Application.Commons.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Expence, ExpenceDto>().ReverseMap();
+            CreateMap<Expense, ExpenseDto>().ReverseMap();
             CreateMap<Income, IncomeDto>().ReverseMap();
         }
     }

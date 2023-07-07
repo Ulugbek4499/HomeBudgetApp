@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HomeBudgetApp.Infrastructure\HomeBudgetApp.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
