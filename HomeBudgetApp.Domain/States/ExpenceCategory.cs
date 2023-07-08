@@ -2,10 +2,10 @@
 {
     public enum ExpenseCategory
     {
-        Foods,
+        Food,
         Transport,
         MobileNetwork,
-        Internet,
+        Utilities,
         Rental,
         Others
     }

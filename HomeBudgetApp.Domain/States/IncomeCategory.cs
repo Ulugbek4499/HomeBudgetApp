@@ -2,8 +2,10 @@
 {
     public enum IncomeCategory
     {
-        Wage,
+        MonthlyWage,
         RentalIncome,
+        GiftIncome,
+        InvestmentIncome,
         OtherIncome
     }
 }
