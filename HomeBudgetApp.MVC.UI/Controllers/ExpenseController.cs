@@ -62,6 +62,7 @@ namespace HomeBudgetApp.MVC.UI.Controllers
 
             return View("ViewExpense", Expense);
         }
+
         [HttpGet("[action]")]
         public async ValueTask<IActionResult> ShowDataInCharts()
         {

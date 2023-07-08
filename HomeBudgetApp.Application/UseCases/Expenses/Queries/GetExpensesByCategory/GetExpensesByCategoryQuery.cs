@@ -19,7 +19,7 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByCateg
 
         public async Task<List<object>> Handle(GetExpensesByCategoryQuery request, CancellationToken cancellationToken)
         {
-            List<object> data = new List<object>();
+            /*List<object> data = new List<object>();
 
             List<string> categoryNames = Enum.GetNames(typeof(ExpenseCategory)).ToList();
             data.Add(categoryNames);
@@ -55,6 +55,26 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByCateg
              .Where(e => e.ExpenseCategory == ExpenseCategory.Others)
               .SumAsync(e => e.Amount);
             totalAmounts.Add(totalAmountOthers);
+
+            data.Add(totalAmounts);
+
+            return data;*/
+
+            List<object> data = new List<object>();
+
+            List<string> categoryNames = Enum.GetNames(typeof(ExpenseCategory)).ToList();
+            data.Add(categoryNames);
+
+            List<decimal> totalAmounts = new List<decimal>();
+
+            foreach (ExpenseCategory category in Enum.GetValues(typeof(ExpenseCategory)))
+            {
+                decimal totalAmount = await _context.Expenses
+                    .Where(e => e.ExpenseCategory == category)
+                    .SumAsync(e => e.Amount);
+
+                totalAmounts.Add(totalAmount);
+            }
 
             data.Add(totalAmounts);
 
