@@ -4,6 +4,7 @@ using HomeBudgetApp.Application.UseCases.Expenses.Commands.CreateExpenses;
 using HomeBudgetApp.Application.UseCases.Expenses.Commands.UpdateExpenses;
 using HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpense;
 using HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpenses;
+using HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByCategory;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeBudgetApp.MVC.UI.Controllers
@@ -61,11 +62,18 @@ namespace HomeBudgetApp.MVC.UI.Controllers
 
             return View("ViewExpense", Expense);
         }
-
         [HttpGet("[action]")]
-        public async ValueTask<IActionResult> ShowDataInChars()
+        public async ValueTask<IActionResult> ShowDataInCharts()
         {
             return View();
+        }
+
+        [HttpPost("[action]")]
+        public async ValueTask<List<object>> GetDataInCharts()
+        {
+            List<object> data = await Mediator.Send(new GetExpensesByCategoryQuery());
+
+            return data;
         }
     }
 }

@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Security.Cryptography.Xml;
 using HomeBudgetApp.Application.Commons.Interfaces;
 using HomeBudgetApp.Domain.States;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByCategory
 {
-    public record GetExpensesByCategoryQuery : IRequest<Dictionary<string, decimal>>;
+    public record GetExpensesByCategoryQuery : IRequest<List<object>>;
 
-    public class GetExpensesByCategoryQueryHandler : IRequestHandler<GetExpensesByCategoryQuery, Dictionary<string, decimal>>
+    public class GetExpensesByCategoryQueryHandler : IRequestHandler<GetExpensesByCategoryQuery, List<object>>
     {
         private readonly IApplicationDbContext _context;
 
@@ -20,41 +17,48 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByCateg
             _context = context;
         }
 
-        public Task<Dictionary<string, decimal>> Handle(GetExpensesByCategoryQuery request, CancellationToken cancellationToken)
+        public async Task<List<object>> Handle(GetExpensesByCategoryQuery request, CancellationToken cancellationToken)
         {
-            Dictionary<string, decimal> result= new Dictionary<string, decimal>();
+            List<object> data = new List<object>();
 
-            decimal totalFoodAmount = _context.Expenses
-                                  .Where(e => e.ExpenseCategory == ExpenseCategory.Food)
-                                  .Sum(e => e.Amount);
-            result.Add("Food", totalFoodAmount);
+            List<string> categoryNames = Enum.GetNames(typeof(ExpenseCategory)).ToList();
+            data.Add(categoryNames);
 
-            decimal totalTransportAmount = _context.Expenses
-                                 .Where(e => e.ExpenseCategory == ExpenseCategory.Transport)
-                                 .Sum(e => e.Amount);
-            result.Add("Transport", totalFoodAmount);
+            List<decimal> totalAmounts = new();
 
-            decimal totalMobileNetworkAmount = _context.Expenses
-                                 .Where(e => e.ExpenseCategory == ExpenseCategory.MobileNetwork)
-                                 .Sum(e => e.Amount);
-            result.Add("MobileNetwork", totalFoodAmount);
+            decimal totalAmountFood = await _context.Expenses
+                   .Where(e => e.ExpenseCategory == ExpenseCategory.Food)
+                    .SumAsync(e => e.Amount);
+            totalAmounts.Add(totalAmountFood);
 
-            decimal totalUtilitiesAmount = _context.Expenses
-                                 .Where(e => e.ExpenseCategory == ExpenseCategory.Utilities)
-                                 .Sum(e => e.Amount);
-            result.Add("Utilities", totalFoodAmount);
+            decimal totalAmountTransport = await _context.Expenses
+                 .Where(e => e.ExpenseCategory == ExpenseCategory.Transport)
+                  .SumAsync(e => e.Amount);
+            totalAmounts.Add(totalAmountTransport);
 
-            decimal totalRentalAmount = _context.Expenses
-                                 .Where(e => e.ExpenseCategory == ExpenseCategory.Rental)
-                                 .Sum(e => e.Amount);
-            result.Add("Rental", totalFoodAmount);
+            decimal totalAmountMobileNetwork = await _context.Expenses
+                 .Where(e => e.ExpenseCategory == ExpenseCategory.MobileNetwork)
+                  .SumAsync(e => e.Amount);
+            totalAmounts.Add(totalAmountMobileNetwork);
 
-            decimal totalOthersAmount = _context.Expenses
-                                 .Where(e => e.ExpenseCategory == ExpenseCategory.Others)
-                                 .Sum(e => e.Amount);
-            result.Add("Others", totalFoodAmount);
+            decimal totalAmountUtilities = await _context.Expenses
+              .Where(e => e.ExpenseCategory == ExpenseCategory.Utilities)
+               .SumAsync(e => e.Amount);
+            totalAmounts.Add(totalAmountUtilities);
 
-            return result;
+            decimal totalAmountRental = await _context.Expenses
+             .Where(e => e.ExpenseCategory == ExpenseCategory.Rental)
+              .SumAsync(e => e.Amount);
+            totalAmounts.Add(totalAmountRental);
+
+            decimal totalAmountOthers = await _context.Expenses
+             .Where(e => e.ExpenseCategory == ExpenseCategory.Others)
+              .SumAsync(e => e.Amount);
+            totalAmounts.Add(totalAmountOthers);
+
+            data.Add(totalAmounts);
+
+            return data;
         }
     }
 }
