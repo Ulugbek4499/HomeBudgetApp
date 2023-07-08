@@ -12,10 +12,6 @@ namespace HomeBudgetApp.Application.UseCases.Incomes.Commands.CreateIncomes
                .MaximumLength(100)
                .WithMessage("Comment is required");
 
-            RuleFor(e => e.IncomeCategory)
-               .NotEmpty()
-               .WithMessage("Income Category is required");
-
             RuleFor(e => e.Amount)
                 .NotEmpty()
                 .WithMessage("Amount is required.");

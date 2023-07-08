@@ -12,10 +12,6 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Commands.CreateExpenses
                .MaximumLength(100)
                .WithMessage("Comment is required");
 
-            RuleFor(e => e.ExpenseCategory)
-               .NotEmpty()
-               .WithMessage("Expense Category is required");
-
             RuleFor(e => e.Amount)
                 .NotEmpty()
                 .WithMessage("Amount is required.");
