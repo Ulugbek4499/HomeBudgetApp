@@ -1,1 +1,64 @@
-﻿
+﻿@using HomeBudgetApp.Application.UseCases.Expenses.Commands.UpdateExpenses;
+@using HomeBudgetApp.Application.Commons.Models;
+@using HomeBudgetApp.Domain.Entities;
+@using HomeBudgetApp.Domain.States;
+@model ExpenseDto
+
+@{
+    ViewData["Title"] = "UpdateExpense";
+    Layout = "_Layout";
+}
+
+<h3 class="text-center">Edit Expense</h3>
+<hr />
+
+<form asp-controller="Expense" asp-action="UpdateExpense" enctype="multipart/form-data" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="custom-input">
+                    <div class="form-group">
+                        <label asp-for="ExpenseCategory">Category:</label>
+                        <select asp-for="ExpenseCategory" class="form-control" required>
+                            <option value="">Choose Category</option>
+                            @foreach (var status in Enum.GetValues(typeof(ExpenseCategory)))
+                            {
+                                <option value="@status">@status</option>
+                            }
+                        </select>
+                        <span asp-validation-for="ExpenseCategory" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label asp-for="Amount">Amount:</label>
+                        <input asp-for="Amount" class="form-control" required value="@Model.Amount" step="0.01" />
+                        <span asp-validation-for="Amount" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label asp-for="Comment" class="form-label">Comment</label>
+                        <input asp-for="Comment" type="text" class="form-control" value="@Model.Comment">
+                        <span asp-validation-for="Comment" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label asp-for="Time">Expense Time:</label>
+                        <input asp-for="Time" type="date" class="form-control" required value="@Model.Time.ToString("yyyy-MM-dd")" />
+                        <span asp-validation-for="Time" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group button-group mt-3">
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -20,3 +20,28 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.social-links a {
+        border: 2px solid;
+        color: #fff;
+        border-image: linear-gradient(to right, #E100FF, #7F00FF) 1;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        margin: 0 0.3rem;
+        transition: all 0.6s ease;
+    }
+
+.social-links a:hover {
+            border-image: linear-gradient(to right, #7F00FF, #E100FF) 1;
+            color: var(--dark);
+            text-decoration: none;
+        }
