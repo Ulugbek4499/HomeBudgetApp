@@ -17,47 +17,20 @@
             width: 200px; /* Adjust the width as needed */
         }
 
-        .navbar-dark .navbar-nav .nav-link {
-            color: white;
-        }
-
-            .navbar-dark .navbar-nav .nav-link:hover {
-                color: yellow;
-            }
-
         .sidebar .nav-link {
             color: white;
         }
 
-            .sidebar .nav-link:hover {
-                color: yellow;
-            }
+        .sidebar .nav-link:hover {
+             color: yellow;
+        }
 
         .social-links {
             display: flex;
             justify-content: center;
         }
 
-            .social-links a {
-                border: 2px solid;
-                color: #fff;
-                border-image: linear-gradient(to right, #E100FF, #7F00FF) 1;
-                width: 50px;
-                height: 50px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-decoration: none;
-                margin: 0 0.3rem;
-                transition: all 0.6s ease;
-            }
-
-                .social-links a:hover {
-                    border-image: linear-gradient(to right, #7F00FF, #E100FF) 1;
-                    color: var(--dark);
-                    text-decoration: none;
-                }
-    </style>
+     </style>
 </head>
 <body>
     <div class="container-fluid" style="position:fixed">
@@ -86,7 +59,7 @@
                         <a asp-controller="Expense" asp-action="ShowDataInChartsByMonths" class="nav-link">ExpenseCharts ByMonth</a>
                     </li>
                       <li class="nav-item">
-                        <a asp-controller="Income" asp-action="ShowDataInChartsByMonths" class="nav-link">IncomeCharts ByMonth</a>
+                        <a asp-controller="Income" asp-action="ShowDataInChartsByMonths" class="nav-link">Income Charts ByMonth</a>
                     </li>
                 </ul>
             </aside>
@@ -101,13 +74,19 @@
         </div>
     </div>
 
-    <footer class="w-100 py-4 bg-dark mt-0" style="position: fixed; bottom:0; width:100%">
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/ulugbek-toshtemirov-912b04262/"><i class="lab la-linkedin"></i></a>
-            <a href="https://github.com/Ulugbek4499"><i class="lab la-github"></i></a>
-            <a href="https://t.me/Ulugbek_Toshtemirov"><i class="lab la-telegram"></i></a>
-        </div>
-    </footer>
+<footer class="w-100 py-4 bg-dark mt-0" style="position: fixed; bottom:0; width:100%">
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/ulugbek-toshtemirov-912b04262/">
+            <img src="~/css/linkedin.png" alt="LinkedIn" style="filter: brightness(150%); width: 24px; height: 24px;" />
+        </a>
+        <a href="https://github.com/Ulugbek4499">
+           <img src="~/css/github.png" alt="GitHub" style="filter: brightness(150%); width: 24px; height: 24px;" />
+        </a>
+        <a href="https://t.me/Ulugbek_Toshtemirov">
+           <img src="~/css/telegram.png" alt="Telegram" style="filter: brightness(150%); width: 24px; height: 24px;" />
+        </a>
+    </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     @await RenderSectionAsync("Scripts", required: false)
