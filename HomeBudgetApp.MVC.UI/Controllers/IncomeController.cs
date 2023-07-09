@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using HomeBudgetApp.Application.UseCases.Incomes.Commands.DeleteIncomes;
 using HomeBudgetApp.Application.UseCases.Incomes.Queries.GetIncomesByCategory;
 using HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByMonths;
+using HomeBudgetApp.Application.UseCases.Incomes.Queries.GetIncomesByMonths;
 
 namespace HomeBudgetApp.MVC.UI.Controllers
 {
