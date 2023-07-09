@@ -6,6 +6,7 @@ using HomeBudgetApp.Application.UseCases.Incomes.Queries.GetIncomes;
 using Microsoft.AspNetCore.Mvc;
 using HomeBudgetApp.Application.UseCases.Incomes.Commands.DeleteIncomes;
 using HomeBudgetApp.Application.UseCases.Incomes.Queries.GetIncomesByCategory;
+using HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByMonths;
 
 namespace HomeBudgetApp.MVC.UI.Controllers
 {
@@ -73,6 +74,21 @@ namespace HomeBudgetApp.MVC.UI.Controllers
         public async ValueTask<List<object>> GetDataInCharts()
         {
             List<object> data = await Mediator.Send(new GetIncomesByCategoryQuery());
+
+            return data;
+        }
+
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> ShowDataInChartsByMonths()
+        {
+            return View();
+        }
+
+        [HttpPost("[action]")]
+        public async ValueTask<List<object>> GetDataInChartsByMonths()
+        {
+            List<object> data = await Mediator.Send(new GetIncomesByMonthQuery());
 
             return data;
         }

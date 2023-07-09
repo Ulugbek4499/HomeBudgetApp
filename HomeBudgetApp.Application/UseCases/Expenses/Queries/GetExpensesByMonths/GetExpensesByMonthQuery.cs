@@ -20,7 +20,6 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByMonth
         {
             var data = new List<object>();
 
-            // Add month-year names to the list
             var monthYearNames = _context.Expenses
                 .GroupBy(e => new { e.Time.Year, e.Time.Month })
                 .Select(g => new DateTime(g.Key.Year, g.Key.Month, 1).ToString("MMMM yyyy"))
@@ -28,7 +27,6 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByMonth
 
             data.Add(monthYearNames);
 
-            // Calculate total amounts for each month-year
             var totalAmounts = new List<decimal>();
 
             foreach (var monthYear in monthYearNames)
