@@ -5,7 +5,6 @@ using HomeBudgetApp.Application.UseCases.Incomes.Queries.GetIncome;
 using HomeBudgetApp.Application.UseCases.Incomes.Queries.GetIncomes;
 using Microsoft.AspNetCore.Mvc;
 using HomeBudgetApp.Application.UseCases.Incomes.Commands.DeleteIncomes;
-using HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByCategory;
 using HomeBudgetApp.Application.UseCases.Incomes.Queries.GetIncomesByCategory;
 
 namespace HomeBudgetApp.MVC.UI.Controllers

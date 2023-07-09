@@ -72,7 +72,7 @@ namespace HomeBudgetApp.MVC.UI.Controllers
         [HttpPost("[action]")]
         public async ValueTask<List<object>> GetDataInCharts()
         {
-            List<object> data = await Mediator.Send(new GetExpensesByCategoryQuery());
+            List<object> data = await Mediator.Send(new GetExpensesByMonthQuery());
 
             return data;
         }
