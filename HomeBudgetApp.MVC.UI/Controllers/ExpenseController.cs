@@ -5,6 +5,7 @@ using HomeBudgetApp.Application.UseCases.Expenses.Commands.UpdateExpenses;
 using HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpense;
 using HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpenses;
 using HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByCategory;
+using HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByMonths;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeBudgetApp.MVC.UI.Controllers
@@ -71,6 +72,20 @@ namespace HomeBudgetApp.MVC.UI.Controllers
 
         [HttpPost("[action]")]
         public async ValueTask<List<object>> GetDataInCharts()
+        {
+            List<object> data = await Mediator.Send(new GetExpensesByCategoryQuery());
+
+            return data;
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> ShowDataInChartsByMonths()
+        {
+            return View();
+        }
+
+        [HttpPost("[action]")]
+        public async ValueTask<List<object>> GetDataInChartsByMonths()
         {
             List<object> data = await Mediator.Send(new GetExpensesByMonthQuery());
 

@@ -1,13 +1,14 @@
-﻿using HomeBudgetApp.Application.Commons.Interfaces;
+﻿using System.Security.Cryptography.Xml;
+using HomeBudgetApp.Application.Commons.Interfaces;
 using HomeBudgetApp.Domain.States;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByCategory
 {
-    public record GetExpensesByMonthQuery : IRequest<List<object>>;
+    public record GetExpensesByCategoryQuery : IRequest<List<object>>;
 
-    public class GetExpensesByCategoryQueryHandler : IRequestHandler<GetExpensesByMonthQuery, List<object>>
+    public class GetExpensesByCategoryQueryHandler : IRequestHandler<GetExpensesByCategoryQuery, List<object>>
     {
         private readonly IApplicationDbContext _context;
 
@@ -16,7 +17,7 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Queries.GetExpensesByCateg
             _context = context;
         }
 
-        public async Task<List<object>> Handle(GetExpensesByMonthQuery request, CancellationToken cancellationToken)
+        public async Task<List<object>> Handle(GetExpensesByCategoryQuery request, CancellationToken cancellationToken)
         {
             /*List<object> data = new List<object>();
 
