@@ -2,11 +2,12 @@
 using HomeBudgetApp.Application.Commons.Interfaces;
 using HomeBudgetApp.Domain.Entities;
 using HomeBudgetApp.Infrastructure.Persistence.Interceptors;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace HomeBudgetApp.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : DbContext, IApplicationDbContext
+    public class ApplicationDbContext : IdentityDbContext, IApplicationDbContext
     {
         private readonly DbContextOptions<ApplicationDbContext> _options;
         private readonly AuditableEntitySaveChangesInterceptor _interceptor;
