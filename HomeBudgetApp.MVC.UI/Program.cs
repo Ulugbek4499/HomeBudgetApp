@@ -19,6 +19,19 @@ namespace HomeBudgetApp.MVC.UI
 
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
 
+            builder.Services.AddAuthentication().AddGoogle(options =>
+            {
+                options.ClientId = builder.Configuration["Authentification:Google:ClientId"];
+                options.ClientSecret = builder.Configuration["Authentification:Google:ClientSecret"];
+            });
+
+            builder.Services.AddAuthentication().AddGitHub(options =>
+            {
+                options.ClientId = builder.Configuration["Authentification:GitHub:ClientId"];
+                options.ClientSecret = builder.Configuration["Authentification:GitHub:ClientSecret"];
+            });
+
+
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
             SerilogService.SerilogSettings(builder.Configuration);
     

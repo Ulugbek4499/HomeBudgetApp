@@ -230,8 +230,6 @@
 
 
 
-
-
 @{
     Layout = "_Layout";
 }
@@ -250,12 +248,15 @@
     }
 </style>
 
-<div class="sticky-container">
+
+<div style="display: flex">
+
+    <div class="sticky-container" style="display:block">
     <div class="row">
-        <div class="col-1">
-            <label><b>Chart-Type 1</b></label>
+        <div >
+            <label><b>Expense Chart By Categories</b></label>
         </div>
-        <div class="col-2">
+        <div>
             <select id="ChartType1" class="form-control">
                 <option selected>-Select Chart Type-</option>
                 <option>bar</option>
@@ -264,22 +265,22 @@
                 <option>doughnut</option>
             </select>
         </div>
-        <div class="col-4">
-            <input id="ID1" value="Show Graph 1" type="button" />
+        <div >
+            <input id="ID1" value="Show Graph" type="button" />
         </div>
+            <canvas id="myChart1" style="max-width: 400px; max-height: 430px;"></canvas>
     </div>
 </div>
 
 <br />
 
-<div class="chart-container">
-    <canvas id="myChart1" style="max-width: 400px; max-height: 430px;"></canvas>
+<div class="chart-container" style="display:block">
 
     <div class="row">
-        <div class="col-1">
-            <label><b>Chart-Type 2</b></label>
+        <div >
+            <label><b>Expense Chart By Month</b></label>
         </div>
-        <div class="col-2">
+        <div >
             <select id="ChartType2" class="form-control">
                 <option selected>-Select Chart Type-</option>
                 <option>bar</option>
@@ -288,30 +289,30 @@
                 <option>doughnut</option>
             </select>
         </div>
-        <div class="col-4">
-            <input id="ID2" value="Show Graph 2" type="button" />
+        <div>
+            <input id="ID2" value="Show Graph" type="button" />
         </div>
+<canvas id="myChart2" style="max-width: 400px; max-height: 430px;"></canvas>
     </div>
 </div>
-
+</div>
 <br />
 
-<canvas id="myChart2" style="max-width: 400px; max-height: 430px;"></canvas>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script type="text/javascript">
     $(function () {
-        var myChart1; // Declare the first chart variable outside the click event handler
-        var myChart2; // Declare the second chart variable outside the click event handler
+        var myChart1; 
+        var myChart2; 
 
         $("#ID1").click(function () {
             var chartType = $("#ChartType1").val();
             var chartView = document.getElementById('myChart1');
 
             if (myChart1) {
-                myChart1.destroy(); // Destroy the existing first chart instance
+                myChart1.destroy(); 
             }
 
             $.ajax({
@@ -330,7 +331,7 @@
 
                 var barColor = ["red", "green", "blue", "orange", "brown", "purple"];
 
-                myChart1 = new Chart(chartView, { // Assign the new first chart instance to the variable
+                myChart1 = new Chart(chartView, {
                     type: chartType,
                     data: {
                         labels: _chartLabels,
@@ -343,7 +344,6 @@
             }
 
             function OnError(data) {
-                // Handle error here
             }
         });
 
@@ -352,7 +352,7 @@
             var chartView = document.getElementById('myChart2');
 
             if (myChart2) {
-                myChart2.destroy(); // Destroy the existing second chart instance
+                myChart2.destroy(); 
             }
 
             $.ajax({
@@ -371,7 +371,7 @@
 
                 var barColor = ["red", "green", "blue", "orange", "brown", "purple", "black", "gray", "yellow"];
 
-                myChart2 = new Chart(chartView, { // Assign the new second chart instance to the variable
+                myChart2 = new Chart(chartView, {
                     type: chartType,
                     data: {
                         labels: _chartLabels,
