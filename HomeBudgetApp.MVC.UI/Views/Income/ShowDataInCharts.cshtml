@@ -1,115 +1,32 @@
-﻿@*@{
-    Layout = "_Layout";
-}
-
-<p>
-    <div class=row>
-        <div class="col-1">
-            <label><b>Chart-Type</b></label>
-        </div>
-        <div class="col-2">
-            <select id="ChartType" class="form-control" style="width:150px;">
-                <option selected>-Select Chart Type-</option>
-                <option>bar</option>
-                <option>line</option>
-                <option>pie</option>
-                <option>doughnut</option>
-            </select>
-        </div>
-        <div class="col-4">
-            <input id="ID" value="Show Graph" type="button" />
-        </div>
-    </div>
-</p>
-
-<br />
-
-
-
-<canvas id="myChart" style="max-width: 400px; max-height: 430px;"></canvas>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script type="text/javascript">
-    $(function () {
-        var myChart; // Declare the chart variable outside the click event handler
-
-        $("#ID").click(function () {
-            var chartType = $("#ChartType").val();
-            var chartView = document.getElementById('myChart');
-
-            if (myChart) {
-                myChart.destroy(); // Destroy the existing chart instance
-            }
-
-            $.ajax({
-                type: "POST",
-                url: "/Income/GetDataInCharts",
-                data: "",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: OnSuccessResult,
-                error: OnError
-            });
-
-            function OnSuccessResult(data) {
-                var _chartLabels = data[0];
-                var _chartData = data[1];
-
-                var barColor = ["red", "green", "blue", "orange", "brown", "purple"];
-
-                myChart = new Chart(chartView, { // Assign the new chart instance to the variable
-                    type: chartType,
-                    data: {
-                        labels: _chartLabels,
-                        datasets: [{
-                            backgroundColor: barColor,
-                            data: _chartData
-                        }]
-                    }
-                });
-            }
-
-            function OnError(data) {
-                // Handle error here
-            }
-        });
-    });
-</script>*@
-
-
-@{
+﻿@{
     Layout = "_Layout";
 }
 
 <style>
     .sticky-container {
-        position: sticky;
-        top: 0;
+        width: 550px;
+        height: 580px;
         background-color: #f8f9fa;
-        padding: 10px;
+        padding: 25px;
     }
 
     .chart-container {
-        display: flex;
-        justify-content: space-between;
+        width: 550px;
+        height: 580px;
+        background-color: #f8f9fa;
+        padding: 25px;
     }
 </style>
 
-
-<div style="display: flex">
-
-    <div class="sticky-container" style="display:block">
-        <div class="row">
+<div style="display: flex; justify-content:space-around;">
+    <div class="sticky-container">
+        <div class="row" style="display:flex; flex-direction:column; gap:10px;">
             <div>
                 <label><b>Income Chart By Categories</b></label>
             </div>
             <div>
                 <select id="ChartType1" class="form-control">
                     <option selected>-Select Chart Type-</option>
-                    <option>bar</option>
-                    <option>line</option>
                     <option>pie</option>
                     <option>doughnut</option>
                 </select>
@@ -117,15 +34,14 @@
             <div>
                 <input id="ID1" value="Show Graph" type="button" />
             </div>
-            <canvas id="myChart1" style="max-width: 400px; max-height: 430px;"></canvas>
+            <canvas id="myChart1" style="max-width: 430px; max-height: 400px;"></canvas>
         </div>
     </div>
 
     <br />
 
-    <div class="chart-container" style="display:block">
-
-        <div class="row">
+    <div class="chart-container">
+        <div class="row" style="display:flex; flex-direction:column; gap:10px">
             <div>
                 <label><b>Income Chart By Month</b></label>
             </div>
@@ -134,19 +50,17 @@
                     <option selected>-Select Chart Type-</option>
                     <option>bar</option>
                     <option>line</option>
-                    <option>pie</option>
-                    <option>doughnut</option>
                 </select>
             </div>
             <div>
                 <input id="ID2" value="Show Graph" type="button" />
             </div>
-            <canvas id="myChart2" style="max-width: 400px; max-height: 430px;"></canvas>
+            <canvas id="myChart2" style="max-width: 450px; max-height: 400px;"></canvas>
         </div>
     </div>
 </div>
-<br />
 
+<br />
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -193,6 +107,7 @@
             }
 
             function OnError(data) {
+                // Handle error here
             }
         });
 
