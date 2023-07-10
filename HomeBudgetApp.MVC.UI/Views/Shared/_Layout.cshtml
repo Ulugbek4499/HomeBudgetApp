@@ -38,20 +38,46 @@
                 color: yellow;
             }
 
-        /* Login and Register button styles */
-        #register,
-        #login {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
+        /* Navigation button styles */
+        .navbar-nav .nav-item {
+            margin-bottom: 5px;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
             padding: 8px 16px;
             text-decoration: none;
             transition: background-color 0.3s;
         }
 
-            #register:hover,
-            #login:hover {
+            .navbar-nav .nav-link:hover {
                 background-color: #0056b3;
+            }
+
+        /* Logout and user manager button styles */
+        .navbar-nav .logout-form {
+            display: inline-block;
+            margin: 0;
+        }
+
+        .navbar-nav .logout-button {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .navbar-nav .user-manager-link {
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+            padding: 0 10px;
+            line-height: 38px;
+            transition: color 0.3s;
+        }
+
+            .navbar-nav .user-manager-link:hover {
+                color: yellow;
             }
     </style>
 </head>
@@ -102,7 +128,7 @@
                             Income Charts ByMonth
                         </a>
                     </li>
-                    <partial name="_LoginPartial" />
+                  
                 </ul>
             </aside>
 
@@ -117,17 +143,26 @@
     </div>
 
 
-    <footer class="w-100 py-4 bg-dark mt-0" style="position: fixed; bottom:0; width:100%">
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/ulugbek-toshtemirov-912b04262/" class="icon-link">
-                <i class="fab fa-linkedin fa-2x"></i>
-            </a>
-            <a href="https://github.com/Ulugbek4499" class="icon-link">
-                <i class="fab fa-github fa-2x"></i>
-            </a>
-            <a href="https://t.me/Ulugbek_Toshtemirov" class="icon-link">
-                <i class="fab fa-telegram fa-2x"></i>
-            </a>
+    <footer class="w-100 bg-dark mt-0" style="position: fixed; bottom:0; width:100%">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-2">
+                    <partial name="_LoginPartial" />
+                </div>
+                <div class="col-10 text-end">
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/ulugbek-toshtemirov-912b04262/" class="icon-link">
+                            <i class="fab fa-linkedin fa-2x"></i>
+                        </a>
+                        <a href="https://github.com/Ulugbek4499" class="icon-link">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                        <a href="https://t.me/Ulugbek_Toshtemirov" class="icon-link">
+                            <i class="fab fa-telegram fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
