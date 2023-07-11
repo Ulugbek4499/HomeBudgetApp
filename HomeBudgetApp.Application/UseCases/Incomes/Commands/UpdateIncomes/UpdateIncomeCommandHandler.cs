@@ -30,7 +30,7 @@ namespace HomeBudgetApp.Application.UseCases.Incomes.Commands.UpdateIncomes
             maybeIncome.Amount = request.Amount;
             maybeIncome.IncomeCategory = request.IncomeCategory;
             maybeIncome.Comment = request.Comment;
-            maybeIncome.Time =request.Time;
+            maybeIncome.Time = request.Time;
 
             await _context.SaveChangesAsync(cancellationToken);
 

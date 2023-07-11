@@ -21,7 +21,7 @@ namespace HomeBudgetApp.MVC.UI
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
             SerilogService.SerilogSettings(builder.Configuration);
-    
+
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddInfrastructureService(builder.Configuration);
@@ -49,7 +49,7 @@ namespace HomeBudgetApp.MVC.UI
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
 
-         
+
             app.Run();
         }
     }
