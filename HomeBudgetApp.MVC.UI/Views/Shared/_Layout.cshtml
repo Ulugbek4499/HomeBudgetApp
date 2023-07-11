@@ -22,8 +22,8 @@
             color: white;
         }
 
-        .fa-2x {
-            font-size: 3rem;
+        .sidebar .nav-link i {
+            font-size: 2rem; /* Increase the font size to make the sidebar icons bigger */
         }
 
         .custom-sidebar {
@@ -79,55 +79,80 @@
             .navbar-nav .user-manager-link:hover {
                 color: yellow;
             }
+
+        /* Footer icon styles */
+        footer .icon-link i {
+            font-size: 3rem; /* Increase the font size to make the footer icons bigger */
+        }
     </style>
+
 </head>
 <body>
-    <div class="container-fluid" style="position: fixed">
-        <div class="row">
-            <aside class="bg-dark text-light col-2 sidebar" style="height: 100vh; width: 200px">
-                <ul class="nav flex-column" style="padding-top:25px">
-                    <li class="nav-item">
-                        <a asp-controller="Home" asp-action="Index" class="nav-link">
+<div class="container-fluid" style="position: fixed">
+    <div class="row">
+        <aside class="bg-dark text-light col-2 sidebar" style="height: 100vh; width: 200px">
+            <ul class="nav flex-column" style="padding-top: 25px">
+                <li class="nav-item">
+                    <a asp-controller="Home" asp-action="Index" class="nav-link">
+                        <div class="icon-wrapper">
                             <i class="fas fa-home"></i>
+                        </div>
+                        <div class="name-wrapper">
                             Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="Expense" asp-action="GetAllExpenses" class="nav-link">
-                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Expense" asp-action="GetAllExpenses" class="nav-link">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-receipt"></i>
+                        </div>
+                        <div class="name-wrapper">
                             Expenses
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="Income" asp-action="GetAllIncomes" class="nav-link">
-                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Income" asp-action="GetAllIncomes" class="nav-link">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="name-wrapper">
                             Income
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="Expense" asp-action="ShowDataInCharts" class="nav-link">
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Expense" asp-action="ShowDataInCharts" class="nav-link">
+                        <div class="icon-wrapper">
                             <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="name-wrapper">
                             Expense Indexes
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="Income" asp-action="ShowDataInCharts" class="nav-link">
-                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Income" asp-action="ShowDataInCharts" class="nav-link">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="name-wrapper">
                             Income Indexes
-                        </a>
-                    </li>                 
-                </ul>
-            </aside>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </aside>
 
-       
-            <main class="col-10">
-                <div class="container mt-3 pt-4">
-                    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-                    @RenderBody()
-                </div>
-            </main>
-        </div>
+        <main class="col-10">
+            <div class="container mt-3 pt-4">
+                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                @RenderBody()
+            </div>
+        </main>
     </div>
+</div>
 
 
     <footer class="w-100 bg-dark mt-0" style="position: fixed; bottom:0; width:100%">
