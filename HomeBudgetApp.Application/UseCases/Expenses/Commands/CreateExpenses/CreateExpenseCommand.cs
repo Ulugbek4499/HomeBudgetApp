@@ -11,5 +11,4 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Commands.CreateExpenses
         public string Comment { get; set; }
         public DateTime Time { get; set; }
     }
-
 }
