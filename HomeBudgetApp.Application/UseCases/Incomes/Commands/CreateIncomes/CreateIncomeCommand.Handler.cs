@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HomeBudgetApp.Application.Commons.Interfaces;
 using HomeBudgetApp.Application.Commons.Models;
+using HomeBudgetApp.Application.UseCases.Incomes.Notifications;
 using HomeBudgetApp.Domain.Entities;
 using MediatR;
 
@@ -32,7 +33,7 @@ namespace HomeBudgetApp.Application.UseCases.Incomes.Commands.CreateIncomes
             Income = _context.Incomes.Add(Income).Entity;
 
             await _context.SaveChangesAsync(cancellationToken);
-            //await _mediator.Publish();
+            await _mediator.Publish(new IncomeCreatedNotification(Income.Comment, Income.Amount));
 
             return _mapper.Map<IncomeDto>(Income);
         }

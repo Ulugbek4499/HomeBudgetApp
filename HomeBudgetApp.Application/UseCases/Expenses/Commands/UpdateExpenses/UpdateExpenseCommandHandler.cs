@@ -2,6 +2,7 @@
 using HomeBudgetApp.Application.Commons.Exceptions;
 using HomeBudgetApp.Application.Commons.Interfaces;
 using HomeBudgetApp.Application.Commons.Models;
+using HomeBudgetApp.Application.UseCases.Expenses.Notifications;
 using HomeBudgetApp.Domain.Entities;
 using MediatR;
 
@@ -34,7 +35,8 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Commands.UpdateExpenses
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            // await _mediator.Publish(new ExpenseUpdatedNotification(maybeExpense.Comment));
+            await _mediator.Publish(notification: new ExpenseUpdatedNotification(maybeExpense, request.Amount, request.Comment));
+
 
             return _mapper.Map<ExpenseDto>(maybeExpense);
         }

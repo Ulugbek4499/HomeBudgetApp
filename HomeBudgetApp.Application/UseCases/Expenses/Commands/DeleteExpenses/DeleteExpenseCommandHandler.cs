@@ -2,6 +2,7 @@
 using HomeBudgetApp.Application.Commons.Exceptions;
 using HomeBudgetApp.Application.Commons.Interfaces;
 using HomeBudgetApp.Application.Commons.Models;
+using HomeBudgetApp.Application.UseCases.Expenses.Notifications;
 using HomeBudgetApp.Domain.Entities;
 using MediatR;
 
@@ -31,7 +32,7 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Commands.DeleteExpenses
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            //  await _mediator.Publish(new ExpenseDeletedNotification(maybeExpense.Title));
+            await _mediator.Publish(notification: new ExpenseDeletedNotification(maybeExpense.Comment, maybeExpense.Amount));
 
             return _mapper.Map<ExpenseDto>(maybeExpense);
         }
