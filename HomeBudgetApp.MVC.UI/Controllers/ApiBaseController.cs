@@ -1,8 +1,10 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeBudgetApp.MVC.UI.Controllers
 {
+    [Authorize]
     [Route("[controller]")]
     [ApiController]
     public class ApiBaseController : Controller

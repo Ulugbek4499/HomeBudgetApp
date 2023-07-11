@@ -60,9 +60,9 @@ namespace HomeBudgetApp.MVC.UI
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-
             app.MapRazorPages();
 
+         
             app.Run();
         }
     }

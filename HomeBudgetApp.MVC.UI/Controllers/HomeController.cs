@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using HomeBudgetApp.MVC.UI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeBudgetApp.MVC.UI.Controllers
@@ -17,12 +18,15 @@ namespace HomeBudgetApp.MVC.UI.Controllers
         {
             return View();
         }
+
+        [AllowAnonymous]
         public IActionResult Privacy()
         {
             return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [AllowAnonymous]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
