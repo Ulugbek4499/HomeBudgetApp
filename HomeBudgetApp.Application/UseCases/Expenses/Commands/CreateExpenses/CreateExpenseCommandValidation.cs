@@ -8,7 +8,8 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Commands.CreateExpenses
         {
             RuleFor(e => e.Comment)
                .NotEmpty()
-               .MinimumLength(3)
+               .NotNull()
+               .MinimumLength(5)
                .MaximumLength(100)
                .WithMessage("Comment is required");
 

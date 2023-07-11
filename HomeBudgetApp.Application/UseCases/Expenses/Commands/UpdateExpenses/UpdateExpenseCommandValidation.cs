@@ -8,13 +8,15 @@ namespace HomeBudgetApp.Application.UseCases.Expenses.Commands.UpdateExpenses
         {
             RuleFor(e => e.Id)
               .NotEmpty()
+              .NotNull()
               .WithMessage("Expense Id is required");
 
             RuleFor(e => e.Comment)
-              .NotEmpty()
-              .MinimumLength(3)
-              .MaximumLength(100)
-              .WithMessage("Comment is required");
+                  .NotEmpty()
+                  .NotNull()
+                  .MinimumLength(5)
+                  .MaximumLength(100)
+                  .WithMessage("Comment is required");
 
             RuleFor(e => e.Amount)
                 .NotEmpty()
